@@ -142,7 +142,7 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
     <Modal
       title={
         <div className='flex items-center gap-2'>
-          <FaInfoCircle className='text-blue-500' />
+          <FaInfoCircle className='text-semi-color-primary' />
           <span>{t('容器详情')}</span>
         </div>
       }
@@ -174,7 +174,7 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
           <Card
             title={
               <div className='flex items-center gap-2'>
-                <FaServer className='text-blue-500' />
+                <FaServer className='text-semi-color-primary' />
                 <span>{t('基本信息')}</span>
               </div>
             }
@@ -230,7 +230,7 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
           <Card
             title={
               <div className='flex items-center gap-2'>
-                <FaChartLine className='text-green-500' />
+                <FaChartLine className='text-[rgb(34,197,94)]' />
                 <span>{t('硬件与性能')}</span>
               </div>
             }
@@ -257,7 +257,7 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
                           theme='solid'
                           type='primary'
                         >
-                          <FaServer className='text-purple-500' />
+                          <FaServer className='text-[rgb(168,85,247)]' />
                         </Badge>
                         <Text>
                           {t('总计')} {details.total_gpus} {t('个GPU')}
@@ -295,7 +295,7 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
                   strokeWidth={8}
                   showInfo={false}
                 />
-                <div className='flex justify-between text-xs text-gray-500'>
+                <div className='flex justify-between text-xs text-semi-color-text-2'>
                   <span>
                     {t('已服务')}: {details.compute_minutes_served} {t('分钟')}
                   </span>
@@ -312,7 +312,7 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
             <Card
               title={
                 <div className='flex items-center gap-2'>
-                  <FaDocker className='text-blue-600' />
+                  <FaDocker className='text-semi-color-primary' />
                   <span>{t('容器配置')}</span>
                 </div>
               }
@@ -354,7 +354,7 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
                       <Text strong className='block mb-2'>
                         {t('环境变量')}:
                       </Text>
-                      <div className='bg-gray-50 p-3 rounded-lg max-h-32 overflow-y-auto'>
+                      <div className='bg-semi-color-fill-0 p-3 rounded-lg max-h-32 overflow-y-auto'>
                         {Object.entries(
                           details.container_config.env_variables,
                         ).map(([key, value]) => (
@@ -362,10 +362,10 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
                             key={key}
                             className='flex gap-2 text-sm font-mono mb-1'
                           >
-                            <span className='text-blue-600 font-medium'>
+                            <span className='text-semi-color-primary font-medium'>
                               {key}=
                             </span>
-                            <span className='text-gray-700 break-all'>
+                            <span className='text-semi-color-text-1 break-all'>
                               {String(value)}
                             </span>
                           </div>
@@ -401,7 +401,7 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
                 {containers.map((ctr) => (
                   <Card
                     key={ctr.container_id}
-                    className='bg-gray-50 border border-gray-100'
+                    className='bg-semi-color-fill-0 border border-semi-color-border'
                     bodyStyle={{ padding: '12px 16px' }}
                   >
                     <div className='flex flex-wrap items-center justify-between gap-3'>
@@ -446,7 +446,7 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
                     </div>
 
                     {ctr.events && ctr.events.length > 0 && (
-                      <div className='mt-3 bg-white rounded-md border border-gray-100 p-3'>
+                      <div className='mt-3 bg-semi-color-bg-0 rounded-md border border-semi-color-border p-3'>
                         <Text
                           size='small'
                           type='secondary'
@@ -460,12 +460,12 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
                               key={`${ctr.container_id}-${event.time}-${index}`}
                               className='flex gap-3 text-xs font-mono'
                             >
-                              <span className='text-gray-500 min-w-[140px]'>
+                              <span className='text-semi-color-text-2 min-w-[140px]'>
                                 {event.time
                                   ? timestamp2string(event.time)
                                   : '--'}
                               </span>
-                              <span className='text-gray-700 break-all flex-1'>
+                              <span className='text-semi-color-text-1 break-all flex-1'>
                                 {event.message || '--'}
                               </span>
                             </div>
@@ -484,7 +484,7 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
             <Card
               title={
                 <div className='flex items-center gap-2'>
-                  <FaMapMarkerAlt className='text-orange-500' />
+                  <FaMapMarkerAlt className='text-[rgb(249,115,22)]' />
                   <span>{t('部署位置')}</span>
                 </div>
               }
@@ -509,16 +509,16 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
           <Card
             title={
               <div className='flex items-center gap-2'>
-                <FaMoneyBillWave className='text-green-500' />
+                <FaMoneyBillWave className='text-[rgb(34,197,94)]' />
                 <span>{t('费用信息')}</span>
               </div>
             }
             className='border-0 shadow-sm'
           >
             <div className='space-y-3'>
-              <div className='flex items-center justify-between p-3 bg-green-50 rounded-lg'>
+              <div className='flex items-center justify-between p-3 bg-[rgba(34,197,94,0.08)] rounded-lg'>
                 <Text>{t('已支付金额')}</Text>
-                <Text strong className='text-lg text-green-600'>
+                <Text strong className='text-lg text-[rgb(22,163,74)]'>
                   $
                   {details.amount_paid
                     ? details.amount_paid.toFixed(2)
@@ -552,7 +552,7 @@ const ViewDetailsModal = ({ visible, onCancel, deployment, t }) => {
           <Card
             title={
               <div className='flex items-center gap-2'>
-                <FaClock className='text-purple-500' />
+                <FaClock className='text-[rgb(168,85,247)]' />
                 <span>{t('时间信息')}</span>
               </div>
             }

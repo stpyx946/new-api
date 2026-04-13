@@ -295,7 +295,7 @@ const ExtendDurationModal = ({
     <Modal
       title={
         <div className='flex items-center gap-2'>
-          <FaClock className='text-blue-500' />
+          <FaClock className='text-semi-color-primary' />
           <span>{t('延长容器时长')}</span>
         </div>
       }
@@ -316,7 +316,7 @@ const ExtendDurationModal = ({
       className='extend-duration-modal'
     >
       <div className='space-y-4'>
-        <Card className='border-0 bg-gray-50'>
+        <Card className='border-0 bg-semi-color-fill-0'>
           <div className='flex items-center justify-between'>
             <div>
               <Text strong className='text-base'>
@@ -425,7 +425,7 @@ const ExtendDurationModal = ({
         <Card
           title={
             <div className='flex items-center gap-2'>
-              <FaCalculator className='text-green-500' />
+              <FaCalculator className='text-[rgb(34,197,94)]' />
               <span>{t('费用预估')}</span>
             </div>
           }
@@ -479,16 +479,16 @@ const ExtendDurationModal = ({
                 <Text strong className='text-lg'>
                   {t('预估总费用')}:
                 </Text>
-                <Text strong className='text-lg text-green-600'>
+                <Text strong className='text-lg text-[rgb(22,163,74)]'>
                   {typeof estimatedTotalCost === 'number'
                     ? `${estimatedTotalCost.toFixed(4)} ${currencyLabel}`
                     : '--'}
                 </Text>
               </div>
 
-              <div className='bg-blue-50 p-3 rounded-lg'>
+              <div className='bg-semi-color-primary-light-default p-3 rounded-lg'>
                 <div className='flex items-start gap-2'>
-                  <FaInfoCircle className='text-blue-500 mt-0.5' />
+                  <FaInfoCircle className='text-semi-color-primary mt-0.5' />
                   <div>
                     <Text size='small' type='secondary'>
                       {t('延长后总时长')}: <Text strong>{newTotalTime}</Text>
@@ -502,7 +502,7 @@ const ExtendDurationModal = ({
               </div>
             </div>
           ) : (
-            <div className='text-center text-gray-500 py-4'>
+            <div className='text-center text-semi-color-text-2 py-4'>
               {costLoading ? (
                 <Space align='center' className='justify-center'>
                   <Spin size='small' />
@@ -519,15 +519,15 @@ const ExtendDurationModal = ({
           )}
         </Card>
 
-        <div className='bg-red-50 border border-red-200 rounded-lg p-3'>
+        <div className='bg-[rgba(239,68,68,0.08)] border border-red-200 rounded-lg p-3'>
           <div className='flex items-start gap-2'>
-            <FaExclamationTriangle className='text-red-500 mt-0.5' />
+            <FaExclamationTriangle className='text-[rgb(239,68,68)] mt-0.5' />
             <div>
               <Text strong className='text-red-700'>
                 {t('确认延长容器时长')}
               </Text>
               <div className='mt-1'>
-                <Text size='small' className='text-red-600'>
+                <Text size='small' className='text-[rgb(220,38,38)]'>
                   {t('点击"确认延长"后将立即扣除费用并延长容器运行时间')}
                 </Text>
               </div>

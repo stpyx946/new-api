@@ -105,7 +105,7 @@ const CustomInputRender = (props) => {
   // 清空按钮
   const styledClearNode = clearContextNode
     ? React.cloneElement(clearContextNode, {
-        className: `!rounded-full !bg-gray-100 hover:!bg-red-500 hover:!text-white flex-shrink-0 transition-all ${clearContextNode.props.className || ''}`,
+        className: `!rounded-full !bg-semi-color-fill-0 hover:!bg-[rgba(239,68,68,0.08)]0 hover:!text-white flex-shrink-0 transition-all ${clearContextNode.props.className || ''}`,
         style: {
           ...clearContextNode.props.style,
           width: '32px',
@@ -121,7 +121,7 @@ const CustomInputRender = (props) => {
 
   // 发送按钮
   const styledSendNode = React.cloneElement(sendNode, {
-    className: `!rounded-full !bg-purple-500 hover:!bg-purple-600 flex-shrink-0 transition-all ${sendNode.props.className || ''}`,
+    className: `!rounded-full !bg-[rgba(168,85,247,0.08)]0 hover:!bg-purple-600 flex-shrink-0 transition-all ${sendNode.props.className || ''}`,
     style: {
       ...sendNode.props.style,
       width: '32px',
@@ -137,7 +137,7 @@ const CustomInputRender = (props) => {
   return (
     <div className='p-2 sm:p-4' ref={containerRef}>
       <div
-        className='flex items-center gap-2 sm:gap-3 p-2 bg-gray-50 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-md transition-shadow'
+        className='flex items-center gap-2 sm:gap-3 p-2 bg-semi-color-fill-0 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-md transition-shadow'
         style={{ border: '1px solid var(--semi-color-border)' }}
         onClick={onClick}
         title={t('支持 Ctrl+V 粘贴图片')}

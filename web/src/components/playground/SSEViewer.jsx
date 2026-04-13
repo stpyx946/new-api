@@ -134,9 +134,9 @@ const SSEViewer = ({ sseData }) => {
   const renderSSEItem = (item) => {
     if (item.isDone) {
       return (
-        <div className='flex items-center gap-2 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg'>
-          <CheckCircle size={16} className='text-green-600' />
-          <Typography.Text className='text-green-600 font-medium'>
+        <div className='flex items-center gap-2 p-3 bg-[rgba(34,197,94,0.08)] dark:bg-green-900/20 rounded-lg'>
+          <CheckCircle size={16} className='text-[rgb(22,163,74)]' />
+          <Typography.Text className='text-[rgb(22,163,74)] font-medium'>
             {t('流式响应完成')} [DONE]
           </Typography.Text>
         </div>
@@ -146,13 +146,13 @@ const SSEViewer = ({ sseData }) => {
     if (item.error) {
       return (
         <div className='space-y-2'>
-          <div className='flex items-center gap-2 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg'>
-            <XCircle size={16} className='text-red-600' />
-            <Typography.Text className='text-red-600'>
+          <div className='flex items-center gap-2 p-3 bg-[rgba(239,68,68,0.08)] dark:bg-red-900/20 rounded-lg'>
+            <XCircle size={16} className='text-[rgb(220,38,38)]' />
+            <Typography.Text className='text-[rgb(220,38,38)]'>
               {t('解析错误')}: {item.error}
             </Typography.Text>
           </div>
-          <div className='p-3 bg-gray-100 dark:bg-gray-800 rounded-lg font-mono text-xs overflow-auto'>
+          <div className='p-3 bg-semi-color-fill-0 dark:bg-[rgb(28,37,46)] rounded-lg font-mono text-xs overflow-auto'>
             <pre>{item.raw}</pre>
           </div>
         </div>
@@ -163,7 +163,7 @@ const SSEViewer = ({ sseData }) => {
       <div className='space-y-2'>
         {/* JSON 格式化显示 */}
         <div className='relative'>
-          <pre className='p-4 bg-gray-900 text-gray-100 rounded-lg overflow-auto text-xs font-mono leading-relaxed'>
+          <pre className='p-4 bg-[rgb(28,37,46)] text-gray-100 rounded-lg overflow-auto text-xs font-mono leading-relaxed'>
             {JSON.stringify(item.parsed, null, 2)}
           </pre>
           <Button
@@ -171,7 +171,7 @@ const SSEViewer = ({ sseData }) => {
             size='small'
             theme='borderless'
             onClick={() => handleCopySingle(item)}
-            className='absolute top-2 right-2 !bg-gray-800/80 !text-gray-300 hover:!bg-gray-700'
+            className='absolute top-2 right-2 !bg-[rgb(28,37,46)]/80 !text-semi-color-text-2 hover:!bg-semi-color-fill-1'
           />
         </div>
 
@@ -207,18 +207,18 @@ const SSEViewer = ({ sseData }) => {
 
   if (!parsedSSEData || parsedSSEData.length === 0) {
     return (
-      <div className='flex items-center justify-center h-full min-h-[200px] text-gray-500'>
+      <div className='flex items-center justify-center h-full min-h-[200px] text-semi-color-text-2'>
         <span>{t('暂无SSE响应数据')}</span>
       </div>
     );
   }
 
   return (
-    <div className='h-full flex flex-col bg-gray-50 dark:bg-gray-900/50 rounded-lg'>
+    <div className='h-full flex flex-col bg-semi-color-fill-0 dark:bg-[rgb(28,37,46)]/50 rounded-lg'>
       {/* 头部工具栏 */}
-      <div className='flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 flex-shrink-0'>
+      <div className='flex items-center justify-between p-4 border-b border-semi-color-border dark:border-semi-color-border flex-shrink-0'>
         <div className='flex items-center gap-3'>
-          <Zap size={16} className='text-blue-500' />
+          <Zap size={16} className='text-semi-color-primary' />
           <Typography.Text strong>{t('SSE数据流')}</Typography.Text>
           <Badge count={stats.total} type='primary' />
           {stats.errors > 0 && (
@@ -270,7 +270,7 @@ const SSEViewer = ({ sseData }) => {
           activeKey={expandedKeys}
           onChange={setExpandedKeys}
           accordion={false}
-          className='bg-white dark:bg-gray-800 rounded-lg'
+          className='bg-semi-color-bg-0 dark:bg-[rgb(28,37,46)] rounded-lg'
         >
           {parsedSSEData.map((item) => (
             <Collapse.Panel
@@ -279,18 +279,18 @@ const SSEViewer = ({ sseData }) => {
                 <div className='flex items-center gap-2'>
                   <Badge count={`#${item.index + 1}`} type='tertiary' />
                   {item.isDone ? (
-                    <span className='text-green-600 font-medium'>[DONE]</span>
+                    <span className='text-[rgb(22,163,74)] font-medium'>[DONE]</span>
                   ) : item.error ? (
-                    <span className='text-red-600'>{t('解析错误')}</span>
+                    <span className='text-[rgb(220,38,38)]'>{t('解析错误')}</span>
                   ) : (
                     <>
-                      <span className='text-gray-600'>
+                      <span className='text-semi-color-text-1'>
                         {item.parsed?.id ||
                           item.parsed?.object ||
                           t('SSE 事件')}
                       </span>
                       {item.parsed?.choices?.[0]?.delta && (
-                        <span className='text-xs text-gray-400'>
+                        <span className='text-xs text-semi-color-text-2'>
                           •{' '}
                           {Object.keys(item.parsed.choices[0].delta)
                             .filter((k) => item.parsed.choices[0].delta[k])

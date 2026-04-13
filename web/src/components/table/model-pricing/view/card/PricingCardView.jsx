@@ -49,8 +49,8 @@ const CARD_STYLES = {
   container:
     'w-12 h-12 rounded-2xl flex items-center justify-center relative shadow-md',
   icon: 'w-8 h-8 flex items-center justify-center',
-  selected: 'border-blue-500 bg-blue-50',
-  default: 'border-gray-200 hover:border-gray-300',
+  selected: 'border-semi-color-primary bg-semi-color-primary-light-default',
+  default: 'border-semi-color-border hover:border-semi-color-border',
 };
 
 const PricingCardView = ({
@@ -263,7 +263,7 @@ const PricingCardView = ({
                   <div className='flex items-start space-x-3 flex-1 min-w-0'>
                     {getModelIcon(model)}
                     <div className='flex-1 min-w-0'>
-                      <h3 className='text-lg font-bold text-gray-900 truncate'>
+                      <h3 className='text-lg font-bold text-semi-color-text-0 truncate'>
                         {model.model_name}
                       </h3>
                       <div className='flex flex-col gap-1 text-xs mt-1'>
@@ -317,14 +317,14 @@ const PricingCardView = ({
                   {showRatio && (
                     <div className='pt-3'>
                       <div className='flex items-center space-x-1 mb-2'>
-                        <span className='text-xs font-medium text-gray-700'>
+                        <span className='text-xs font-medium text-semi-color-text-1'>
                           {t('倍率信息')}
                         </span>
                         <Tooltip
                           content={t('倍率是为了方便换算不同价格的模型')}
                         >
                           <IconHelpCircle
-                            className='text-blue-500 cursor-pointer'
+                            className='text-semi-color-primary cursor-pointer'
                             size='small'
                             onClick={(e) => {
                               e.stopPropagation();
@@ -334,7 +334,7 @@ const PricingCardView = ({
                           />
                         </Tooltip>
                       </div>
-                      <div className='grid grid-cols-3 gap-2 text-xs text-gray-600'>
+                      <div className='grid grid-cols-3 gap-2 text-xs text-semi-color-text-1'>
                         <div>
                           {t('模型')}:{' '}
                           {model.quota_type === 0 ? model.model_ratio : t('无')}

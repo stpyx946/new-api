@@ -111,7 +111,7 @@ const ChannelKeyDisplay = ({
       {showSuccessIcon && (
         <div className='flex items-center gap-2'>
           <svg
-            className='w-5 h-5 text-green-600'
+            className='w-5 h-5 text-[rgb(22,163,74)]'
             fill='currentColor'
             viewBox='0 0 20 20'
           >
@@ -154,14 +154,14 @@ const ChannelKeyDisplay = ({
           {parsedKeys.map((keyItem) => (
             <Card
               key={keyItem.id}
-              className='!rounded-lg !border !border-gray-200 dark:!border-gray-700'
+              className='!rounded-lg !border !border-semi-color-border dark:!border-semi-color-border'
             >
               <div className='space-y-2'>
                 <div className='flex items-center justify-between'>
                   <Typography.Text
                     strong
                     size='small'
-                    className='text-gray-700 dark:text-gray-300'
+                    className='text-semi-color-text-1 dark:text-semi-color-text-2'
                   >
                     {keyItem.label}
                   </Typography.Text>
@@ -192,10 +192,10 @@ const ChannelKeyDisplay = ({
                   </div>
                 </div>
 
-                <div className='bg-gray-50 dark:bg-gray-800 rounded-lg p-3 max-h-40 overflow-auto'>
+                <div className='bg-semi-color-fill-0 dark:bg-[rgb(28,37,46)] rounded-lg p-3 max-h-40 overflow-auto'>
                   <Typography.Text
                     code
-                    className='text-xs font-mono break-all whitespace-pre-wrap text-gray-800 dark:text-gray-200'
+                    className='text-xs font-mono break-all whitespace-pre-wrap text-semi-color-text-0 dark:text-semi-color-text-1'
                   >
                     {keyItem.content}
                   </Typography.Text>
@@ -216,11 +216,11 @@ const ChannelKeyDisplay = ({
         </div>
 
         {isMultipleKeys && (
-          <div className='bg-blue-50 dark:bg-blue-900 rounded-lg p-3'>
+          <div className='bg-semi-color-primary-light-default dark:bg-semi-color-primary-light-default rounded-lg p-3'>
             <Typography.Text
               type='tertiary'
               size='small'
-              className='text-blue-700 dark:text-blue-300'
+              className='text-semi-color-primary dark:text-semi-color-primary'
             >
               <svg
                 className='w-4 h-4 inline mr-1'
@@ -243,7 +243,7 @@ const ChannelKeyDisplay = ({
 
       {/* 安全警告 */}
       {showWarning && (
-        <div className='bg-yellow-50 dark:bg-yellow-900 rounded-lg p-4'>
+        <div className='bg-[rgba(234,179,8,0.08)] dark:bg-yellow-900 rounded-lg p-4'>
           <div className='flex items-start'>
             <svg
               className='w-5 h-5 text-yellow-600 dark:text-yellow-400 mt-0.5 mr-3 flex-shrink-0'

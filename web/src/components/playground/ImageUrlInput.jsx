@@ -54,7 +54,7 @@ const ImageUrlInput = ({
           <Image
             size={16}
             className={
-              imageEnabled && !disabled ? 'text-blue-500' : 'text-gray-400'
+              imageEnabled && !disabled ? 'text-semi-color-primary' : 'text-semi-color-text-2'
             }
           />
           <Typography.Text strong className='text-sm'>
@@ -89,19 +89,19 @@ const ImageUrlInput = ({
       </div>
 
       {!imageEnabled ? (
-        <Typography.Text className='text-xs text-gray-500 mb-2 block'>
+        <Typography.Text className='text-xs text-semi-color-text-2 mb-2 block'>
           {disabled
             ? t('图片功能在自定义请求体模式下不可用')
             : t('启用后可添加图片URL进行多模态对话')}
         </Typography.Text>
       ) : imageUrls.length === 0 ? (
-        <Typography.Text className='text-xs text-gray-500 mb-2 block'>
+        <Typography.Text className='text-xs text-semi-color-text-2 mb-2 block'>
           {disabled
             ? t('图片功能在自定义请求体模式下不可用')
             : t('点击 + 按钮添加图片URL进行多模态对话')}
         </Typography.Text>
       ) : (
-        <Typography.Text className='text-xs text-gray-500 mb-2 block'>
+        <Typography.Text className='text-xs text-semi-color-text-2 mb-2 block'>
           {t('已添加')} {imageUrls.length} {t('张图片')}
           {disabled ? ` (${t('自定义模式下不可用')})` : ''}
         </Typography.Text>
@@ -129,7 +129,7 @@ const ImageUrlInput = ({
               theme='borderless'
               type='danger'
               onClick={() => handleRemoveImageUrl(index)}
-              className='!rounded-full !w-6 !h-6 !p-0 !min-w-0 !text-red-500 hover:!bg-red-50 flex-shrink-0'
+              className='!rounded-full !w-6 !h-6 !p-0 !min-w-0 !text-[rgb(239,68,68)] hover:!bg-[rgba(239,68,68,0.08)] flex-shrink-0'
               disabled={!imageEnabled || disabled}
             />
           </div>

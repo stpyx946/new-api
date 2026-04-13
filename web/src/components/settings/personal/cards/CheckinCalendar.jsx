@@ -193,10 +193,10 @@ const CheckinCalendar = ({ t, status, turnstileEnabled, turnstileSiteKey }) => {
           position='top'
         >
           <div className='absolute inset-0 flex flex-col items-center justify-center cursor-pointer'>
-            <div className='w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mb-0.5 shadow-sm'>
+            <div className='w-6 h-6 rounded-full bg-[rgb(34,197,94)] flex items-center justify-center mb-0.5 shadow-sm'>
               <Check size={14} className='text-white' strokeWidth={3} />
             </div>
-            <div className='text-[10px] font-medium text-green-600 dark:text-green-400 leading-none'>
+            <div className='text-[10px] font-medium text-[rgb(22,163,74)] dark:text-green-400 leading-none'>
               {renderQuota(quotaAwarded)}
             </div>
           </div>
@@ -253,12 +253,12 @@ const CheckinCalendar = ({ t, status, turnstileEnabled, turnstileSiteKey }) => {
                 {t('每日签到')}
               </Typography.Text>
               {isCollapsed ? (
-                <ChevronDown size={16} className='text-gray-400' />
+                <ChevronDown size={16} className='text-semi-color-text-2' />
               ) : (
-                <ChevronUp size={16} className='text-gray-400' />
+                <ChevronUp size={16} className='text-semi-color-text-2' />
               )}
             </div>
-            <div className='text-xs text-gray-500 dark:text-gray-400'>
+            <div className='text-xs text-semi-color-text-2 dark:text-semi-color-text-2'>
               {!initialLoaded
                 ? t('正在加载签到状态...')
                 : checkinData.stats?.checked_in_today
@@ -291,22 +291,22 @@ const CheckinCalendar = ({ t, status, turnstileEnabled, turnstileSiteKey }) => {
         {/* 签到统计 */}
         <div className='grid grid-cols-3 gap-3 mb-4 mt-4'>
           <div className='text-center p-2.5 bg-slate-50 dark:bg-slate-800 rounded-lg'>
-            <div className='text-xl font-bold text-green-600'>
+            <div className='text-xl font-bold text-[rgb(22,163,74)]'>
               {checkinData.stats?.total_checkins || 0}
             </div>
-            <div className='text-xs text-gray-500'>{t('累计签到')}</div>
+            <div className='text-xs text-semi-color-text-2'>{t('累计签到')}</div>
           </div>
           <div className='text-center p-2.5 bg-slate-50 dark:bg-slate-800 rounded-lg'>
             <div className='text-xl font-bold text-orange-600'>
               {renderQuota(monthlyQuota, 6)}
             </div>
-            <div className='text-xs text-gray-500'>{t('本月获得')}</div>
+            <div className='text-xs text-semi-color-text-2'>{t('本月获得')}</div>
           </div>
           <div className='text-center p-2.5 bg-slate-50 dark:bg-slate-800 rounded-lg'>
-            <div className='text-xl font-bold text-blue-600'>
+            <div className='text-xl font-bold text-semi-color-primary'>
               {renderQuota(checkinData.stats?.total_quota || 0, 6)}
             </div>
-            <div className='text-xs text-gray-500'>{t('累计获得')}</div>
+            <div className='text-xs text-semi-color-text-2'>{t('累计获得')}</div>
           </div>
         </div>
 

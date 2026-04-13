@@ -76,7 +76,7 @@ const MessageContent = ({
             }}
           >
             <div className='flex items-center gap-2'>
-              <AlertTriangle size={16} className='text-orange-500 shrink-0' />
+              <AlertTriangle size={16} className='text-[rgb(249,115,22)] shrink-0' />
               <Typography.Text strong className='!text-[var(--semi-color-text-0)]'>
                 {t('模型价格未配置')}
               </Typography.Text>
@@ -267,7 +267,7 @@ const MessageContent = ({
               fontSize: styleState.isMobile ? '14px' : '15px',
               lineHeight: '1.6',
             }}
-            className='!border-blue-200 focus:!border-blue-400 !bg-blue-50/50'
+            className='!border-blue-200 focus:!border-blue-400 !bg-semi-color-primary-light-default/50'
           />
           <div className='flex items-center gap-2 w-full'>
             <Button
@@ -320,7 +320,7 @@ const MessageContent = ({
                           }}
                         />
                         <div
-                          className='text-red-500 text-sm p-2 bg-red-50 rounded-lg border border-red-200'
+                          className='text-[rgb(239,68,68)] text-sm p-2 bg-[rgba(239,68,68,0.08)] rounded-lg border border-red-200'
                           style={{ display: 'none' }}
                         >
                           图片加载失败: {imgItem.image_url.url}

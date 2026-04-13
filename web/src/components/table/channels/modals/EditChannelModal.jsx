@@ -1440,7 +1440,7 @@ const EditChannelModal = (props) => {
                 '模型重定向里的下列模型尚未添加到“模型”列表，调用时会因为缺少可用模型而失败：',
               )}
             </div>
-            <div className='font-mono text-xs break-all text-red-600 mt-1'>
+            <div className='font-mono text-xs break-all text-[rgb(220,38,38)] mt-1'>
               {missingModels.join(', ')}
             </div>
             <div className='mt-2'>
@@ -2081,11 +2081,11 @@ const EditChannelModal = (props) => {
     // 构建样式类名
     const optionClassName = [
       'flex items-center gap-3 px-3 py-2 transition-all duration-200 rounded-lg mx-2 my-1',
-      focused && 'bg-blue-50 shadow-sm',
+      focused && 'bg-semi-color-primary-light-default shadow-sm',
       selected &&
-        'bg-blue-100 text-blue-700 shadow-lg ring-2 ring-blue-200 ring-opacity-50',
+        'bg-semi-color-primary-light-default text-semi-color-primary shadow-lg ring-2 ring-semi-color-primary ring-opacity-50',
       disabled && 'opacity-50 cursor-not-allowed',
-      !disabled && 'hover:bg-gray-50 hover:shadow-md cursor-pointer',
+      !disabled && 'hover:bg-semi-color-fill-0 hover:shadow-md cursor-pointer',
       className,
     ]
       .filter(Boolean)
@@ -2110,7 +2110,7 @@ const EditChannelModal = (props) => {
             />
           </div>
           {selected && (
-            <div className='flex-shrink-0 text-blue-600'>
+            <div className='flex-shrink-0 text-semi-color-primary'>
               <svg
                 width='16'
                 height='16'
@@ -2189,8 +2189,8 @@ const EditChannelModal = (props) => {
               <div className='space-y-4'>
                 {/* Upstream Model Management Section */}
                 {MODEL_FETCHABLE_CHANNEL_TYPES.has(inputs.type) && (
-                <div className='pb-3 border-b border-gray-100'>
-                  <Text className='text-sm font-medium text-gray-500 mb-3 block'>
+                <div className='pb-3 border-b border-semi-color-border'>
+                  <Text className='text-sm font-medium text-semi-color-text-2 mb-3 block'>
                     {t('上游模型管理')}
                   </Text>
 
@@ -2237,13 +2237,13 @@ const EditChannelModal = (props) => {
                     }
                     showClear
                   />
-                  <div className='text-xs text-gray-500 mb-2'>
+                  <div className='text-xs text-semi-color-text-2 mb-2'>
                     {t('上次检测时间')}:&nbsp;
                     {formatUnixTime(
                       inputs.upstream_model_update_last_check_time,
                     )}
                   </div>
-                  <div className='text-xs text-gray-500 mb-3'>
+                  <div className='text-xs text-semi-color-text-2 mb-3'>
                     {t('上次检测到可加入模型')}:&nbsp;
                     {upstreamDetectedModels.length === 0 ? (
                       t('暂无')
@@ -2261,7 +2261,7 @@ const EditChannelModal = (props) => {
                             {upstreamDetectedModelsPreview.join(', ')}
                           </span>
                         </Tooltip>
-                        <span className='ml-1 text-gray-400'>
+                        <span className='ml-1 text-semi-color-text-2'>
                           {upstreamDetectedModelsOmittedCount > 0
                             ? t('（共 {{total}} 个，省略 {{omit}} 个）', {
                                 total: upstreamDetectedModels.length,
@@ -2278,8 +2278,8 @@ const EditChannelModal = (props) => {
                 )}
 
                 {/* Request Config Section */}
-                <div className='py-3 border-b border-gray-100'>
-                  <Text className='text-sm font-medium text-gray-500 mb-3 block'>
+                <div className='py-3 border-b border-semi-color-border'>
+                  <Text className='text-sm font-medium text-semi-color-text-2 mb-3 block'>
                     {t('请求配置')}
                   </Text>
 
@@ -2417,8 +2417,8 @@ const EditChannelModal = (props) => {
                 </div>
 
                 {/* Channel Behavior Section */}
-                <div className='py-3 border-b border-gray-100'>
-                  <Text className='text-sm font-medium text-gray-500 mb-3 block'>
+                <div className='py-3 border-b border-semi-color-border'>
+                  <Text className='text-sm font-medium text-semi-color-text-2 mb-3 block'>
                     {t('渠道行为')}
                   </Text>
 
@@ -2463,7 +2463,7 @@ const EditChannelModal = (props) => {
 
                   {inputs.type === 1 && (
                     <>
-                      <div className='mt-4 mb-2 text-sm font-medium text-gray-700'>
+                      <div className='mt-4 mb-2 text-sm font-medium text-semi-color-text-1'>
                         {t('字段透传控制')}
                       </div>
                       <Form.Switch field='allow_service_tier' label={t('允许 service_tier 透传')} checkedText={t('开')} uncheckedText={t('关')} onChange={(value) => handleChannelOtherSettingsChange('allow_service_tier', value)} extraText={t('service_tier 字段用于指定服务层级，允许透传可能导致实际计费高于预期。默认关闭以避免额外费用')} />
@@ -2475,7 +2475,7 @@ const EditChannelModal = (props) => {
 
                   {inputs.type === 14 && (
                     <>
-                      <div className='mt-4 mb-2 text-sm font-medium text-gray-700'>
+                      <div className='mt-4 mb-2 text-sm font-medium text-semi-color-text-1'>
                         {t('字段透传控制')}
                       </div>
                       <Form.Switch field='allow_service_tier' label={t('允许 service_tier 透传')} checkedText={t('开')} uncheckedText={t('关')} onChange={(value) => handleChannelOtherSettingsChange('allow_service_tier', value)} extraText={t('service_tier 字段用于指定服务层级，允许透传可能导致实际计费高于预期。默认关闭以避免额外费用')} />
@@ -2486,7 +2486,7 @@ const EditChannelModal = (props) => {
 
                 {/* Extra Settings Section */}
                 <div className='pt-3'>
-                  <Text className='text-sm font-medium text-gray-500 mb-3 block'>
+                  <Text className='text-sm font-medium text-semi-color-text-2 mb-3 block'>
                     {t('额外设置')}
                   </Text>
 
@@ -2556,7 +2556,7 @@ const EditChannelModal = (props) => {
                       <Text className='text-lg font-medium'>
                         {t('核心配置')}
                       </Text>
-                      <div className='text-xs text-gray-600'>
+                      <div className='text-xs text-semi-color-text-1'>
                         {t('创建渠道所需的基本信息')}
                       </div>
                     </div>
@@ -3660,7 +3660,7 @@ const EditChannelModal = (props) => {
                 ) : (
                   /* Desktop: toggle button to open side panel */
                   <div
-                    className='flex items-center justify-between p-3 rounded-xl cursor-pointer transition-colors hover:bg-gray-50'
+                    className='flex items-center justify-between p-3 rounded-xl cursor-pointer transition-colors hover:bg-semi-color-fill-0'
                     style={{
                       backgroundColor: advancedSettingsOpen ? 'var(--semi-color-primary-light-default)' : 'var(--semi-color-fill-0)',
                       border: '1px solid var(--semi-color-fill-2)',
@@ -3738,7 +3738,7 @@ const EditChannelModal = (props) => {
                           <Text className='text-lg font-medium'>
                             {t('高级设置')}
                           </Text>
-                          <div className='text-xs text-gray-600'>
+                          <div className='text-xs text-semi-color-text-1'>
                             {t('渠道的高级配置选项')}
                           </div>
                         </div>
@@ -3783,9 +3783,9 @@ const EditChannelModal = (props) => {
       <Modal
         title={
           <div className='flex items-center'>
-            <div className='w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3'>
+            <div className='w-8 h-8 rounded-full bg-[rgba(34,197,94,0.12)] dark:bg-green-900 flex items-center justify-center mr-3'>
               <svg
-                className='w-4 h-4 text-green-600 dark:text-green-400'
+                className='w-4 h-4 text-[rgb(22,163,74)] dark:text-green-400'
                 fill='currentColor'
                 viewBox='0 0 20 20'
               >

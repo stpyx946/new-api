@@ -22,8 +22,8 @@ export const CHART_CONFIG = { mode: 'desktop-browser' };
 
 export const CARD_PROPS = {
   shadows: '',
-  bordered: true,
-  headerLine: true,
+  bordered: false,
+  headerLine: false,
 };
 
 export const FORM_FIELD_PROPS = {

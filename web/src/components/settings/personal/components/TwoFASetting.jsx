@@ -493,18 +493,18 @@ const TwoFASetting = ({ t }) => {
             <div className='rounded-xl'>
               {currentStep === 0 && (
                 <div>
-                  <Paragraph className='text-gray-600 dark:text-gray-300 mb-4'>
+                  <Paragraph className='text-semi-color-text-1 dark:text-semi-color-text-2 mb-4'>
                     {t(
                       '使用认证器应用（如 Google Authenticator、Microsoft Authenticator）扫描下方二维码：',
                     )}
                   </Paragraph>
                   <div className='flex justify-center mb-4'>
-                    <div className='bg-white p-4 rounded-lg shadow-sm'>
+                    <div className='bg-semi-color-bg-0 p-4 rounded-lg shadow-sm'>
                       <QRCodeSVG value={setupData.qr_code_data} size={180} />
                     </div>
                   </div>
-                  <div className='bg-blue-50 dark:bg-blue-900 rounded-lg p-3'>
-                    <Text className='text-blue-800 dark:text-blue-200 text-sm'>
+                  <div className='bg-semi-color-primary-light-default dark:bg-semi-color-primary-light-default rounded-lg p-3'>
+                    <Text className='text-semi-color-primary dark:text-semi-color-primary text-sm'>
                       {t('或手动输入密钥：')}
                       <Text code copyable className='ml-2'>
                         {setupData.secret}
@@ -547,7 +547,7 @@ const TwoFASetting = ({ t }) => {
       <Modal
         title={
           <div className='flex items-center'>
-            <IconAlertTriangle className='mr-2 text-red-500' />
+            <IconAlertTriangle className='mr-2 text-[rgb(239,68,68)]' />
             {t('禁用两步验证')}
           </div>
         }

@@ -219,7 +219,7 @@ const AddEditSubscriptionModal = ({
         visible={visible}
         width={isMobile ? '100%' : 600}
         footer={
-          <div className='flex justify-end bg-white'>
+          <div className='flex justify-end bg-semi-color-bg-0'>
             <Space>
               <Button
                 theme='solid'
@@ -266,7 +266,7 @@ const AddEditSubscriptionModal = ({
                       <Text className='text-lg font-medium'>
                         {t('基本信息')}
                       </Text>
-                      <div className='text-xs text-gray-600'>
+                      <div className='text-xs text-semi-color-text-1'>
                         {t('套餐的基本信息和定价')}
                       </div>
                     </div>
@@ -395,7 +395,7 @@ const AddEditSubscriptionModal = ({
                       <Text className='text-lg font-medium'>
                         {t('有效期设置')}
                       </Text>
-                      <div className='text-xs text-gray-600'>
+                      <div className='text-xs text-semi-color-text-1'>
                         {t('配置套餐的有效时长')}
                       </div>
                     </div>
@@ -457,7 +457,7 @@ const AddEditSubscriptionModal = ({
                       <Text className='text-lg font-medium'>
                         {t('额度重置')}
                       </Text>
-                      <div className='text-xs text-gray-600'>
+                      <div className='text-xs text-semi-color-text-1'>
                         {t('支持周期性重置套餐权益额度')}
                       </div>
                     </div>
@@ -515,7 +515,7 @@ const AddEditSubscriptionModal = ({
                       <Text className='text-lg font-medium'>
                         {t('第三方支付配置')}
                       </Text>
-                      <div className='text-xs text-gray-600'>
+                      <div className='text-xs text-semi-color-text-1'>
                         {t('Stripe/Creem 商品ID（可选）')}
                       </div>
                     </div>

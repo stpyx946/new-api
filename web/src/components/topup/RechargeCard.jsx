@@ -280,7 +280,7 @@ const RechargeCard = ({
                             />
                           }
                         >
-                          <Text type='secondary' className='text-red-600'>
+                          <Text type='secondary' className='text-[rgb(220,38,38)]'>
                             {t('实付金额：')}
                             <span style={{ color: 'red' }}>
                               {renderAmount()}
@@ -530,16 +530,16 @@ const RechargeCard = ({
                       <Card
                         key={index}
                         onClick={() => creemPreTopUp(product)}
-                        className='cursor-pointer !rounded-2xl transition-all hover:shadow-md border-gray-200 hover:border-gray-300'
+                        className='cursor-pointer !rounded-2xl transition-all hover:shadow-md border-semi-color-border hover:border-semi-color-border'
                         bodyStyle={{ textAlign: 'center', padding: '16px' }}
                       >
                         <div className='font-medium text-lg mb-2'>
                           {product.name}
                         </div>
-                        <div className='text-sm text-gray-600 mb-2'>
+                        <div className='text-sm text-semi-color-text-1 mb-2'>
                           {t('充值额度')}: {product.quota}
                         </div>
-                        <div className='text-lg font-semibold text-blue-600'>
+                        <div className='text-lg font-semibold text-semi-color-primary'>
                           {product.currency === 'EUR' ? '€' : '$'}
                           {product.price}
                         </div>

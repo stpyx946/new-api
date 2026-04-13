@@ -196,7 +196,7 @@ const UpdateConfigModal = ({ visible, onCancel, deployment, onSuccess, t }) => {
     <Modal
       title={
         <div className='flex items-center gap-2'>
-          <FaCog className='text-blue-500' />
+          <FaCog className='text-semi-color-primary' />
           <span>{t('更新容器配置')}</span>
         </div>
       }
@@ -211,7 +211,7 @@ const UpdateConfigModal = ({ visible, onCancel, deployment, onSuccess, t }) => {
     >
       <div className='space-y-4 max-h-[600px] overflow-y-auto'>
         {/* Container Info */}
-        <Card className='border-0 bg-gray-50'>
+        <Card className='border-0 bg-semi-color-fill-0'>
           <div className='flex items-center justify-between'>
             <div>
               <Text strong className='text-base'>
@@ -250,7 +250,7 @@ const UpdateConfigModal = ({ visible, onCancel, deployment, onSuccess, t }) => {
             <Collapse.Panel
               header={
                 <div className='flex items-center gap-2'>
-                  <FaDocker className='text-blue-600' />
+                  <FaDocker className='text-semi-color-primary' />
                   <span>{t('镜像配置')}</span>
                 </div>
               }
@@ -288,7 +288,7 @@ const UpdateConfigModal = ({ visible, onCancel, deployment, onSuccess, t }) => {
             <Collapse.Panel
               header={
                 <div className='flex items-center gap-2'>
-                  <FaNetworkWired className='text-green-600' />
+                  <FaNetworkWired className='text-[rgb(22,163,74)]' />
                   <span>{t('网络配置')}</span>
                 </div>
               }
@@ -393,7 +393,7 @@ const UpdateConfigModal = ({ visible, onCancel, deployment, onSuccess, t }) => {
                   ))}
 
                   {envVars.length === 0 && (
-                    <div className='text-center text-gray-500 py-4 border-2 border-dashed border-gray-300 rounded-lg'>
+                    <div className='text-center text-semi-color-text-2 py-4 border-2 border-dashed border-semi-color-border rounded-lg'>
                       <Text type='secondary'>{t('暂无环境变量')}</Text>
                     </div>
                   )}
@@ -452,7 +452,7 @@ const UpdateConfigModal = ({ visible, onCancel, deployment, onSuccess, t }) => {
                   ))}
 
                   {secretEnvVars.length === 0 && (
-                    <div className='text-center text-gray-500 py-4 border-2 border-dashed border-red-200 rounded-lg bg-red-50'>
+                    <div className='text-center text-semi-color-text-2 py-4 border-2 border-dashed border-red-200 rounded-lg bg-[rgba(239,68,68,0.08)]'>
                       <Text type='secondary'>{t('暂无机密环境变量')}</Text>
                     </div>
                   )}
@@ -472,7 +472,7 @@ const UpdateConfigModal = ({ visible, onCancel, deployment, onSuccess, t }) => {
         </Form>
 
         {/* Final Warning */}
-        <div className='bg-yellow-50 border border-yellow-200 rounded-lg p-3'>
+        <div className='bg-[rgba(234,179,8,0.08)] border border-yellow-200 rounded-lg p-3'>
           <div className='flex items-start gap-2'>
             <FaExclamationTriangle className='text-yellow-600 mt-0.5' />
             <div>
