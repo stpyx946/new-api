@@ -15,7 +15,7 @@
 
 /* ==================== 全局基础样式 ==================== */
 :root {
-  --sidebar-width: 180px;
+  --sidebar-width: 220px;
   --sidebar-width-collapsed: 60px;
   --sidebar-current-width: var(--sidebar-width);
 
@@ -84,8 +84,8 @@ body {
 }
 
 .app-sider {
-  height: calc(100vh - 64px);
-  height: calc(100dvh - 64px);
+  height: calc(100vh - 72px);
+  height: calc(100dvh - 72px);
 }
 
 code {
@@ -204,7 +204,7 @@ code {
 .sidebar-nav-item-selected {
   background-color: rgba(7, 141, 238, 0.08);
   color: var(--semi-color-primary);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /* 图标容器样式 */
@@ -502,6 +502,58 @@ html.dark .sbg-variant-green {
 
 .semi-tabs-content .semi-tabs-pane > div {
   height: 100% !important;
+}
+
+/* ==================== Semi Table 全局样式覆盖（UniAPI 风格） ==================== */
+.semi-table-thead > .semi-table-row > .semi-table-row-head {
+  background-color: rgb(244, 246, 248) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--semi-color-text-1) !important;
+}
+
+body[theme-mode="dark"] .semi-table-thead > .semi-table-row > .semi-table-row-head {
+  background-color: var(--semi-color-fill-0) !important;
+}
+
+.semi-table-tbody > .semi-table-row > .semi-table-row-cell {
+  font-size: 14px !important;
+}
+
+.semi-table-tbody > .semi-table-row:hover > .semi-table-row-cell {
+  background-color: rgba(145, 158, 171, 0.08) !important;
+}
+
+body[theme-mode="dark"] .semi-table-tbody > .semi-table-row:hover > .semi-table-row-cell {
+  background-color: rgba(145, 158, 171, 0.12) !important;
+}
+
+/* ==================== 首页特性卡片样式（UniAPI 风格） ==================== */
+.feature-card {
+  padding: 80px 40px !important;
+}
+
+.feature-card:nth-child(even) {
+  box-shadow: rgba(145, 158, 171, 0.16) -40px 40px 80px !important;
+}
+
+.feature-card:nth-child(odd) {
+  box-shadow: none !important;
+}
+
+body[theme-mode="dark"] .feature-card:nth-child(even) {
+  box-shadow: rgba(0, 0, 0, 0.2) -40px 40px 80px !important;
+}
+
+.service-card {
+  box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px,
+    rgba(145, 158, 171, 0.12) 0px 12px 24px -4px !important;
+  padding: 0 !important;
+}
+
+body[theme-mode="dark"] .service-card {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px 0px,
+    rgba(0, 0, 0, 0.15) 0px 12px 24px -4px !important;
 }
 
 /* 表格样式 */

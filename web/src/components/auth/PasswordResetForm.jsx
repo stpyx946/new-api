@@ -27,7 +27,7 @@ import {
   getSystemName,
 } from '../../helpers';
 import Turnstile from 'react-turnstile';
-import { Button, Card, Form, Typography } from '@douyinfe/semi-ui';
+import { Button, Form, Typography } from '@douyinfe/semi-ui';
 import { IconMail } from '@douyinfe/semi-icons';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -104,86 +104,102 @@ const PasswordResetForm = () => {
   }
 
   return (
-    <div className='relative overflow-hidden bg-semi-color-fill-0 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8'>
-      {/* 背景模糊晕染球 */}
+    <div className='flex flex-row min-h-screen bg-semi-color-bg-0'>
+      {/* Left panel — hidden on mobile */}
       <div
-        className='blur-ball blur-ball-indigo'
-        style={{ top: '-80px', right: '-80px', transform: 'none' }}
-      />
+        className='auth-left-panel animate-fade-in hidden md:flex flex-col items-center justify-center shrink-0'
+        style={{
+          width: '480px',
+          maxWidth: '480px',
+          padding: '72px 24px 24px',
+        }}
+      >
+        <Title
+          heading={3}
+          className='font-barlow text-center mb-6'
+          style={{ fontSize: '32px', fontWeight: 700 }}
+        >
+          {t('密码重置')}
+        </Title>
+        <img src={logo} alt='Logo' className='h-16 rounded-full mt-4' />
+      </div>
+
+      {/* Right panel */}
       <div
-        className='blur-ball blur-ball-teal'
-        style={{ top: '50%', left: '-120px' }}
-      />
-      <div className='w-full max-w-sm mt-[60px]'>
-        <div className='flex flex-col items-center'>
-          <div className='w-full max-w-md'>
-            <div className='flex items-center justify-center mb-6 gap-2'>
-              <img src={logo} alt='Logo' className='h-10 rounded-full' />
-              <Title heading={3} className='!text-semi-color-text-0'>
-                {systemName}
-              </Title>
-            </div>
+        className='flex-1 flex flex-col items-center justify-center'
+        style={{ padding: '80px 16px' }}
+      >
+        <div className='w-full max-w-[420px]'>
+          <Title
+            heading={3}
+            className='mb-2'
+            style={{ color: 'rgb(28,37,46)', fontWeight: 700 }}
+          >
+            {t('密码重置')}
+          </Title>
+          <Title
+            heading={5}
+            className='mb-8'
+            style={{ color: 'rgb(28,37,46)', fontWeight: 700, fontSize: '20px' }}
+          >
+            {t('输入邮箱以重置密码')}
+          </Title>
 
-            <Card className='border-0 !rounded-2xl overflow-hidden'>
-              <div className='flex justify-center pt-6 pb-2'>
-                <Title heading={3} className='text-semi-color-text-0 dark:text-semi-color-text-1'>
-                  {t('密码重置')}
-                </Title>
-              </div>
-              <div className='px-2 py-8'>
-                <Form className='space-y-3'>
-                  <Form.Input
-                    field='email'
-                    label={t('邮箱')}
-                    placeholder={t('请输入您的邮箱地址')}
-                    name='email'
-                    value={email}
-                    onChange={handleChange}
-                    prefix={<IconMail />}
-                  />
+          <div className='animate-fade-in-up'>
+            <Form className='space-y-3'>
+              <Form.Input
+                field='email'
+                label={t('邮箱')}
+                placeholder={t('请输入您的邮箱地址')}
+                name='email'
+                value={email}
+                onChange={handleChange}
+                prefix={<IconMail />}
+              />
 
-                  <div className='space-y-2 pt-2'>
-                    <Button
-                      theme='solid'
-                      className='w-full !rounded-full'
-                      type='primary'
-                      htmlType='submit'
-                      onClick={handleSubmit}
-                      loading={loading}
-                      disabled={disableButton}
-                    >
-                      {disableButton
-                        ? `${t('重试')} (${countdown})`
-                        : t('提交')}
-                    </Button>
-                  </div>
-                </Form>
-
-                <div className='mt-6 text-center text-sm'>
-                  <Text>
-                    {t('想起来了？')}{' '}
-                    <Link
-                      to='/login'
-                      className='text-semi-color-primary hover:text-semi-color-primary font-medium'
-                    >
-                      {t('登录')}
-                    </Link>
-                  </Text>
-                </div>
-              </div>
-            </Card>
-
-            {turnstileEnabled && (
-              <div className='flex justify-center mt-6'>
-                <Turnstile
-                  sitekey={turnstileSiteKey}
-                  onVerify={(token) => {
-                    setTurnstileToken(token);
+              <div className='pt-2'>
+                <Button
+                  className='w-full !rounded-[8px]'
+                  style={{
+                    backgroundColor: 'var(--color-cta-bg)',
+                    color: 'var(--color-cta-text)',
+                    height: '48px',
                   }}
-                />
+                  htmlType='submit'
+                  onClick={handleSubmit}
+                  loading={loading}
+                  disabled={disableButton}
+                >
+                  {disableButton
+                    ? `${t('重试')} (${countdown})`
+                    : t('提交')}
+                </Button>
               </div>
-            )}
+            </Form>
+
+            <div className='mt-6 text-center text-sm'>
+              <Text>
+                {t('想起来了？')}{' '}
+                <Link
+                  to='/login'
+                  className='!text-semi-color-primary hover:!text-semi-color-primary-hover font-medium'
+                >
+                  {t('登录')}
+                </Link>
+              </Text>
+            </div>
           </div>
+
+          {turnstileEnabled && (
+            <div className='flex justify-center mt-6'>
+              <Turnstile
+                sitekey={turnstileSiteKey}
+                onVerify={(token) => {
+                  setTurnstileToken(token);
+                }}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

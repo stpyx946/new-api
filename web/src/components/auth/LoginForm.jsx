@@ -942,10 +942,17 @@ const LoginForm = () => {
         <div className='w-full max-w-[420px]'>
           <Title
             heading={3}
-            className='mb-8'
+            className='mb-2'
             style={{ color: 'rgb(28,37,46)', fontWeight: 700 }}
           >
             {t('登 录')}
+          </Title>
+          <Title
+            heading={5}
+            className='mb-8'
+            style={{ color: 'rgb(28,37,46)', fontWeight: 700, fontSize: '20px' }}
+          >
+            {t('登录你的账号')}
           </Title>
 
           {showEmailLogin || !hasOAuthLoginOptions

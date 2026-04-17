@@ -200,7 +200,7 @@ const Home = () => {
             <div className='flex items-center justify-center h-full px-4 py-20 md:py-28 lg:py-36 mt-10'>
               <div className='flex flex-col items-center justify-center text-center max-w-4xl mx-auto'>
                 <h2
-                  className={`font-barlow animate-fade-in-up text-3xl md:text-4xl lg:text-5xl font-extrabold text-semi-color-text-0 leading-tight ${isChinese ? 'tracking-wide' : ''}`}
+                  className={`animate-fade-in-up text-3xl md:text-4xl lg:text-[48px] lg:leading-[56px] font-extrabold text-semi-color-text-0 leading-tight ${isChinese ? 'tracking-wide' : ''}`}
                 >
                   {t('高效且稳定的')}
                   <br />
@@ -353,7 +353,7 @@ const Home = () => {
           {/* ===== 特性卡片区 ===== */}
           <section className='w-full py-16 md:py-24 px-4'>
             <div className='max-w-5xl mx-auto'>
-              <h2 className='font-barlow animate-fade-in-up text-3xl md:text-4xl font-extrabold text-semi-color-text-0 text-center mb-4'>
+              <h2 className='font-barlow animate-fade-in-up text-3xl md:text-4xl lg:text-[48px] lg:leading-[56px] font-extrabold text-semi-color-text-0 text-center mb-4'>
                 {t('为您的应用赋能AI智能化服务')}
               </h2>
               <p className='text-semi-color-text-1 text-center mb-12 text-base md:text-lg max-w-2xl mx-auto'>
@@ -363,8 +363,8 @@ const Home = () => {
                 {features.map((f, i) => (
                   <Card
                     key={i}
-                    className='!border-0 card-hover-lift'
-                    bodyStyle={{ padding: '32px 24px' }}
+                    className='!border-0 card-hover-lift feature-card'
+                    bodyStyle={{ padding: '80px 40px' }}
                   >
                     <div className='w-14 h-14 rounded-2xl bg-semi-color-primary-light-default flex items-center justify-center mb-5'>
                       {f.icon}
@@ -416,7 +416,7 @@ const Home = () => {
             style={{ backgroundColor: 'rgb(28, 37, 46)' }}
           >
             <div className='max-w-4xl mx-auto text-center'>
-              <h2 className='font-barlow text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight'>
+              <h2 className='font-barlow text-3xl md:text-4xl lg:text-[64px] lg:leading-[72px] font-extrabold text-white leading-tight'>
                 {t('准备好了吗？')}
                 <br />
                 {t('即刻开始体验')}
@@ -428,8 +428,8 @@ const Home = () => {
                     size='large'
                     className='!rounded-lg px-8'
                     style={{
-                      backgroundColor: '#fff',
-                      color: 'rgb(28, 37, 46)',
+                      backgroundColor: 'var(--semi-color-primary)',
+                      color: '#fff',
                       border: 'none',
                     }}
                   >
