@@ -133,14 +133,14 @@ const PasswordResetConfirm = () => {
           <Title
             heading={3}
             className='mb-2'
-            style={{ color: 'rgb(28,37,46)', fontWeight: 700 }}
+            style={{ color: 'var(--semi-color-text-0)', fontWeight: 700 }}
           >
             {t('密码重置确认')}
           </Title>
           <Title
             heading={5}
             className='mb-8'
-            style={{ color: 'rgb(28,37,46)', fontWeight: 700, fontSize: '20px' }}
+            style={{ color: 'var(--semi-color-text-0)', fontWeight: 700, fontSize: '20px' }}
           >
             {t('确认重置你的密码')}
           </Title>

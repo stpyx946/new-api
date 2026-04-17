@@ -31,6 +31,9 @@ import {
   setUserData,
   onDiscordOAuthClicked,
   onCustomOAuthClicked,
+  onGitHubOAuthClicked,
+  onLinuxDOOAuthClicked,
+  onOIDCClicked,
 } from '../../helpers';
 import Turnstile from 'react-turnstile';
 import {
@@ -50,11 +53,6 @@ import {
   IconLock,
   IconKey,
 } from '@douyinfe/semi-icons';
-import {
-  onGitHubOAuthClicked,
-  onLinuxDOOAuthClicked,
-  onOIDCClicked,
-} from '../../helpers';
 import OIDCIcon from '../common/logo/OIDCIcon';
 import LinuxDoIcon from '../common/logo/LinuxDoIcon';
 import WeChatIcon from '../common/logo/WeChatIcon';
@@ -735,7 +733,7 @@ const RegisterForm = () => {
           className='font-barlow text-center mb-6'
           style={{ fontSize: '32px', fontWeight: 700 }}
         >
-          👋，欢迎加入！
+          👋，{t('欢迎加入！')}
         </Title>
         <img src={logo} alt='Logo' className='h-16 rounded-full mt-4' />
       </div>
@@ -763,14 +761,14 @@ const RegisterForm = () => {
           <Title
             heading={3}
             className='mb-2'
-            style={{ color: 'rgb(28,37,46)', fontWeight: 700 }}
+            style={{ color: 'var(--semi-color-text-0)', fontWeight: 700 }}
           >
             {t('注 册')}
           </Title>
           <Title
             heading={5}
             className='mb-8'
-            style={{ color: 'rgb(28,37,46)', fontWeight: 700, fontSize: '20px' }}
+            style={{ color: 'var(--semi-color-text-0)', fontWeight: 700, fontSize: '20px' }}
           >
             {t('创建你的账号')}
           </Title>

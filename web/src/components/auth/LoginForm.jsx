@@ -913,7 +913,7 @@ const LoginForm = () => {
           className='font-barlow text-center mb-6'
           style={{ fontSize: '32px', fontWeight: 700 }}
         >
-          👋，欢迎回来！
+          👋，{t('欢迎回来！')}
         </Title>
         <img src={logo} alt='Logo' className='h-16 rounded-full mt-4' />
       </div>
@@ -943,14 +943,14 @@ const LoginForm = () => {
           <Title
             heading={3}
             className='mb-2'
-            style={{ color: 'rgb(28,37,46)', fontWeight: 700 }}
+            style={{ color: 'var(--semi-color-text-0)', fontWeight: 700 }}
           >
             {t('登 录')}
           </Title>
           <Title
             heading={5}
             className='mb-8'
-            style={{ color: 'rgb(28,37,46)', fontWeight: 700, fontSize: '20px' }}
+            style={{ color: 'var(--semi-color-text-0)', fontWeight: 700, fontSize: '20px' }}
           >
             {t('登录你的账号')}
           </Title>

@@ -85,28 +85,31 @@ const Home = () => {
 
   const displayHomePageContent = async () => {
     setHomePageContent(localStorage.getItem('home_page_content') || '');
-    const res = await API.get('/api/home_page_content');
-    const { success, message, data } = res.data;
-    if (success) {
-      let content = data;
-      if (!data.startsWith('https://')) {
-        content = marked.parse(data);
-      }
-      setHomePageContent(content);
-      localStorage.setItem('home_page_content', content);
-
-      if (data.startsWith('https://')) {
-        const iframe = document.querySelector('iframe');
-        if (iframe) {
-          iframe.onload = () => {
-            iframe.contentWindow.postMessage({ themeMode: actualTheme }, '*');
-            iframe.contentWindow.postMessage({ lang: i18n.language }, '*');
-          };
+    try {
+      const res = await API.get('/api/home_page_content');
+      const { success, message, data } = res.data;
+      if (success) {
+        let content = data;
+        if (!data.startsWith('https://')) {
+          content = marked.parse(data);
         }
+        setHomePageContent(content);
+        localStorage.setItem('home_page_content', content);
+
+        if (data.startsWith('https://')) {
+          const iframe = document.querySelector('iframe');
+          if (iframe) {
+            iframe.onload = () => {
+              iframe.contentWindow.postMessage({ themeMode: actualTheme }, '*');
+              iframe.contentWindow.postMessage({ lang: i18n.language }, '*');
+            };
+          }
+        }
+      } else {
+        showError(message);
       }
-    } else {
-      showError(message);
-      setHomePageContent('加载首页内容失败...');
+    } catch (error) {
+      console.error('获取首页内容失败:', error);
     }
     setHomePageContentLoaded(true);
   };
