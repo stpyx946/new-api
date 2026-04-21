@@ -14,7 +14,7 @@ jobs:
         with:
           ref: upstream
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.SYNC_PAT }}
       - name: Sync from upstream
         run: |
           git remote add upstream https://github.com/QuantumNous/new-api.git
